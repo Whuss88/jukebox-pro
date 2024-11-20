@@ -1,0 +1,68 @@
+# Register a new user
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "username": "newuser",
+  "password": "password123"
+}
+
+###
+
+# Login
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "username": "newuser",
+  "password": "password123"
+}
+
+###
+
+# Get all tracks
+GET http://localhost:3000/tracks
+
+###
+
+# Get track by ID
+GET http://localhost:3000/tracks/1
+
+###
+
+# Get all playlists (protected route)
+# Replace <your_token> with the token received from the login response
+GET http://localhost:3000/playlists
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzMyMTM3MTYyLCJleHAiOjE3MzIyMjM1NjJ9.nSNLFw-uZdfr-6qzGyiYIoeKrHbVuXmQqKGLFg1HKDM
+
+
+
+### Get all playlists (protected route)
+GET http://localhost:3000/playlists
+
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzMyMTM2ODU1LCJleHAiOjE3MzIyMjMyNTV9.8rBS-DMvtfUWOV9l3ElZNSoJ5GFZHOm1DStungBfVrs
+
+### Get all playlists (protected route)
+GET http://localhost:3000/playlists
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzMyMTM2ODU1LCJleHAiOjE3MzIyMjMyNTV9.8rBS-DMvtfUWOV9l3ElZNSoJ5GFZHOm1DStungBfVrs
+
+###
+
+# Create a new playlist (protected route)
+# Replace <your_token> with the token received from the login response
+POST http://localhost:3000/playlists
+Authorization: Bearer <your_token>
+Content-Type: application/json
+
+{
+  "name": "My Playlist",
+  "description": "My favorite songs",
+  "trackIds": [1, 2, 3]
+}
+
+###
+
+# Get playlist by ID (protected route)
+# Replace <your_token> with the token received from the login response
+GET http://localhost:3000/playlists/1
+Authorization: Bearer <your_token>
